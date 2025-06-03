@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EdAiVi Studio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .data-display {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 15px;
+            margin-top: 20px;
+            white-space: pre-wrap;
+            font-family: monospace;
+        }
+        .status {
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        #backendData {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 EdAiVi Studio</h1>
+        <p><strong>Frontend работает!</strong></p>
+        
+        <div class="status success">
+            ✅ Frontend успешно загружен
+        </div>
+        
+        <h3>Тестирование API:</h3>
+        
+        <button id="getMainDataBtn">Получить основную информацию</button>
+        <button id="testLoginBtn">Тест маршрута Login</button>
+        <button id="testRegisterBtn">Тест маршрута Register</button>
+        <button id="testProfileBtn">Тест маршрута Profile</button>
+        
+        <div id="backendData" class="data-display"></div>
+        <div id="statusMessage"></div>
+    </div>
+
+    <script>
+        // Функция для отображения данных
+        function displayData(data, title) {
+            const dataDiv = document.getElementById('backendData');
+            const statusDiv = document.getElementById('statusMessage');
+            
+            dataDiv.style.display = 'block';
+            dataDiv.innerHTML = `<strong>${title}:</strong>\n${JSON.stringify(data, null, 2)}`;
+            
+            statusDiv.innerHTML = '<div class="status success">✅ Данные успешно получены с backend!</div>';
+        }
+        
+        // Функция для отображения ошибок
+        function displayError(error, title) {
+            const dataDiv = document.getElementById('backendData');
+            const statusDiv = document.getElementById('statusMessage');
+            
+            dataDiv.style.display = 'block';
+            dataDiv.innerHTML = `<strong>Ошибка ${title}:</strong>\n${error}`;
+            
+            statusDiv.innerHTML = '<div class="status error">❌ Ошибка при получении данных с backend!</div>';
+        }
+        
+        // Основная информация
+        document.getElementById('getMainDataBtn').onclick = async function() {
+            try {
+                const response = await fetch('http://localhost:3001/');
+                const data = await response.json();
+                displayData(data, 'Основная информация API');
+            } catch (error) {
+                displayError(error.message, 'при получении основной информации');
+            }
+        }
+        
+        // Тест маршрута Login
+        document.getElementById('testLoginBtn').onclick = async function() {
+            try {
+                const response = await fetch('http://localhost:3001/api/auth/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email: 'test@example.com',
+                        password: 'testpassword'
+                    })
+                });
+                const data = await response.json();
+                displayData(data, 'Ответ маршрута Login');
+            } catch (error) {
+                displayError(error.message, 'при тестировании Login');
+            }
+        }
+        
+        // Тест маршрута Register
+        document.getElementById('testRegisterBtn').onclick = async function() {
+            try {
+                const response = await fetch('http://localhost:3001/api/auth/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email: 'test@example.com',
+                        password: 'testpassword',
+                        displayName: 'Test User'
+                    })
+                });
+                const data = await response.json();
+                displayData(data, 'Ответ маршрута Register');
+            } catch (error) {
+                displayError(error.message, 'при тестировании Register');
+            }
+        }
+        
+        // Тест маршрута Profile
+        document.getElementById('testProfileBtn').onclick = async function() {
+            try {
+                const response = await fetch('http://localhost:3001/api/auth/profile');
+                const data = await response.json();
+                displayData(data, 'Ответ маршрута Profile');
+            } catch (error) {
+                displayError(error.message, 'при тестировании Profile');
+            }
+        }
+    </script>
+</body>
+</html>
