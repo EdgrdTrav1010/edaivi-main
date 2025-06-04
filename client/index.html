@@ -4,19 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EdAiVi Studio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Exo+2:wght@300;400;500;600;700&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: 'Exo 2', sans-serif;
+            background: #333; /* Тёмно-серый фон */
+            font-family: 'Rajdhani', sans-serif;
             overflow: hidden;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             height: 100vh;
             display: flex;
             justify-content: center;
@@ -30,8 +24,6 @@
             justify-content: center;
             align-items: center;
         }
-        
-        /* Парень */
         .character-male {
             position: absolute;
             width: 120px;
@@ -54,18 +46,6 @@
             top: 20px;
             left: 40px;
         }
-        .character-male::after {
-            content: "";
-            position: absolute;
-            width: 60px;
-            height: 80px;
-            background: #2c3e50;
-            bottom: -80px;
-            left: 30px;
-            border-radius: 5px;
-        }
-
-        /* Девушка */
         .character-female {
             position: absolute;
             width: 120px;
@@ -98,18 +78,6 @@
             left: 20px;
             border-radius: 40px 40px 10px 10px;
         }
-
-        /* Волосы девушки */
-        .character-female .hair {
-            position: absolute;
-            width: 60px;
-            height: 50px;
-            background: #795548;
-            border-radius: 30px 30px 15px 15px;
-            top: 5px;
-            left: 30px;
-        }
-
         .logo-container {
             position: absolute;
             display: none;
@@ -118,271 +86,311 @@
             justify-content: center;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
         }
-        
-        .flash-effect {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, white, rgba(255,255,255,0.8));
-            opacity: 0;
-            pointer-events: none;
-            z-index: 1000;
-            animation: flashEffect 2s ease-in-out 8s forwards;
-        }
-
         .logo {
-            font-family: 'Orbitron', monospace;
+            font-family: 'Orbitron', sans-serif;
             font-size: 5rem;
             font-weight: 900;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7);
-            background-size: 500% 500%;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+            background-size: 400% 400%;
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: gradientFlow 4s ease infinite;
+            animation: gradientFlow 3s ease infinite;
             cursor: pointer;
             text-align: center;
-            letter-spacing: 6px;
-            text-shadow: 0 0 50px rgba(255,255,255,0.5);
+            letter-spacing: 5px;
             text-transform: uppercase;
         }
-        .logo:hover {
-            transform: scale(1.05);
-        }
-        
         .logo-subtitle {
             font-family: 'Rajdhani', sans-serif;
             color: white;
             font-size: 2.2rem;
-            font-weight: 500;
-            margin-top: 50px;
+            font-weight: 600;
+            margin-top: 40px;
             text-align: center;
-            opacity: 0.95;
-            letter-spacing: 3px;
-            text-shadow: 0 4px 15px rgba(0,0,0,0.4);
-            animation: subtitleGlow 3s ease-in-out infinite alternate;
-            line-height: 1.6;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            max-width: 800px;
+            line-height: 1.4;
         }
-
-        .subtitle-line1 {
-            display: block;
-            margin-bottom: 15px;
-            font-size: 2.4rem;
-            background: linear-gradient(45deg, #ffffff, #f0f0f0, #e0e0e0);
+        .ai-highlight {
+            font-family: 'Orbitron', sans-serif;
+            background: linear-gradient(45deg, #00d4ff, #5a67d8);
             background-size: 200% 200%;
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: textShine 3s ease-in-out infinite;
-        }
-
-        .subtitle-line2 {
-            display: block;
-            font-size: 2rem;
-            font-weight: 600;
-        }
-
-        .ai-highlight {
-            font-family: 'Orbitron', monospace;
-            background: linear-gradient(45deg, #00d4ff, #5a67d8, #667eea, #00ff88);
-            background-size: 300% 300%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: aiGlow 2s ease-in-out infinite alternate;
+            animation: aiGlow 2s ease infinite;
             font-weight: 700;
-            font-size: 2.4rem;
-            text-shadow: 0 0 20px rgba(0, 212, 255, 0.6);
-            letter-spacing: 4px;
         }
 
-        .registration-offer {
+        /* Новый интерфейс регистрации */
+        .registration-interface {
             position: absolute;
             display: none;
+            width: 100%;
+            height: 100%;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            width: 100%;
-            height: 100%;
         }
-        .offer-text {
-            font-family: 'Rajdhani', sans-serif;
+
+        /* Верхняя панель с кнопками */
+        .features-panel {
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 90%;
+        }
+
+        .feature-btn {
+            padding: 15px 25px;
+            background: rgba(255,255,255,0.1);
             color: white;
-            font-size: 3rem;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
             font-weight: 500;
-            text-align: center;
-            margin-bottom: 50px;
-            animation: fadeInUp 1s ease-in-out forwards;
-            text-shadow: 0 5px 15px rgba(0,0,0,0.4);
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            letter-spacing: 1px;
+            backdrop-filter: blur(10px);
         }
-        .register-btn {
-            font-family: 'Exo 2', sans-serif;
+
+        .feature-btn:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.6);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .feature-btn.active {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border-color: transparent;
+        }
+
+        /* Центральная область регистрации */
+        .registration-center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+        }
+
+        .registration-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            font-weight: 900;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            margin-bottom: 30px;
+            text-shadow: 0 0 30px rgba(255,255,255,0.5);
+        }
+
+        .register-main-btn {
             padding: 25px 60px;
-            font-size: 1.4rem;
-            font-weight: 600;
+            font-size: 1.5rem;
             background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
             color: white;
             border: none;
             border-radius: 50px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            animation: fadeInUp 1s ease-in-out 0.5s forwards;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-            letter-spacing: 1px;
+            font-weight: 700;
             text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
         }
-        .register-btn:hover {
-            transform: translateY(-8px);
+
+        .register-main-btn:hover {
+            transform: translateY(-5px);
             box-shadow: 0 20px 50px rgba(0,0,0,0.4);
         }
 
-        /* Анимации */
+        .availability-note {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+            margin-top: 20px;
+            text-align: center;
+            font-style: italic;
+        }
+
+        /* Окно предварительного просмотра функций */
+        .feature-preview {
+            position: absolute;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 20px 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255,255,255,0.2);
+            display: none;
+            max-width: 600px;
+            animation: slideUp 0.3s ease-out;
+        }
+
+        .preview-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #4ecdc4;
+        }
+
+        .preview-content {
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
         @keyframes walkInMale {
             0% { left: -150px; }
-            60% { left: calc(50% - 120px); }
             80% { left: calc(50% - 80px); }
-            90% { left: calc(50% - 80px); }
-            100% { 
-                left: calc(50% - 80px);
-                transform: translateY(-50%) rotateY(180deg);
-            }
+            100% { left: calc(50% - 80px); transform: translateY(-50%) rotateY(180deg); }
         }
-        
         @keyframes walkInFemale {
             0% { right: -150px; }
-            60% { right: calc(50% - 120px); }
             80% { right: calc(50% - 80px); }
-            90% { right: calc(50% - 80px); }
-            100% { 
-                right: calc(50% - 80px);
-                transform: translateY(-50%) rotateY(-180deg);
-            }
+            100% { right: calc(50% - 80px); transform: translateY(-50%) rotateY(-180deg); }
         }
-
-        @keyframes flashEffect {
-            0% { opacity: 0; }
-            30% { opacity: 1; }
-            100% { opacity: 0; }
-        }
-
         @keyframes gradientFlow {
             0% { background-position: 0% 50%; }
-            25% { background-position: 100% 50%; }
-            50% { background-position: 50% 100%; }
-            75% { background-position: 0% 50%; }
-            100% { background-position: 50% 0%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
-
-        @keyframes subtitleGlow {
-            0% { 
-                opacity: 0.95;
-                text-shadow: 0 4px 15px rgba(0,0,0,0.4);
-            }
-            100% { 
-                opacity: 1;
-                text-shadow: 0 0 25px rgba(255,255,255,0.3);
-            }
-        }
-
-        @keyframes textShine {
-            0% { 
-                background-position: 0% 50%;
-            }
-            50% { 
-                background-position: 100% 50%;
-            }
-            100% { 
-                background-position: 0% 50%;
-            }
-        }
-
         @keyframes aiGlow {
-            0% { 
-                background-position: 0% 50%;
-                text-shadow: 0 0 15px rgba(0, 212, 255, 0.6);
-            }
-            100% { 
-                background-position: 100% 50%;
-                text-shadow: 0 0 25px rgba(90, 103, 216, 0.8);
-            }
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
         }
-
-        @keyframes fadeInUp {
-            from { 
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to { 
-                opacity: 1;
-                transform: translateY(0);
-            }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+            to { opacity: 1; transform: translateX(-50%) translateY(0); }
         }
 
         @media (max-width: 768px) {
-            .logo { 
-                font-size: 3rem; 
-                letter-spacing: 3px;
+            .features-panel { 
+                top: 30px; 
+                gap: 10px;
             }
-            .logo-subtitle { 
-                font-size: 1.5rem; 
-                margin-top: 30px;
+            .feature-btn { 
+                padding: 10px 15px; 
+                font-size: 0.9rem; 
             }
-            .subtitle-line1 { font-size: 1.6rem; }
-            .subtitle-line2 { font-size: 1.4rem; }
-            .ai-highlight { font-size: 1.6rem; }
-            .offer-text { font-size: 2rem; }
-            .register-btn { padding: 20px 40px; font-size: 1.2rem; }
+            .registration-title { 
+                font-size: 2.5rem; 
+            }
+            .register-main-btn { 
+                padding: 20px 40px; 
+                font-size: 1.2rem; 
+            }
         }
     </style>
 </head>
 <body>
-    <div class="flash-effect" id="flashEffect"></div>
-
     <div class="intro-scene" id="introScene">
         <div class="character-male"></div>
-        <div class="character-female">
-            <div class="hair"></div>
-        </div>
+        <div class="character-female"></div>
     </div>
 
     <div class="logo-container" id="logoContainer">
-        <div class="logo" onclick="showRegistrationOffer()">
-            EdAiVi Studio
-        </div>
+        <div class="logo" onclick="showRegistrationInterface()">EdAiVi Studio</div>
         <div class="logo-subtitle">
-            <span class="subtitle-line1"> Твои мечты стали реальностью</span>
-            <span class="subtitle-line2"> Твори вместе с <span class="ai-highlight">AI</span></span>
+             Твои мечты стали реальностью<br>
+             Твори вместе с <span class="ai-highlight">AI</span>
         </div>
     </div>
 
-    <div class="registration-offer" id="registrationOffer">
-        <div class="offer-text">
-             Готовы творить будущее с AI?
+    <div class="registration-interface" id="registrationInterface">
+        <!-- Верхняя панель с кнопками -->
+        <div class="features-panel">
+            <button class="feature-btn" onclick="showFeature('audio')"> Звук</button>
+            <button class="feature-btn" onclick="showFeature('video')"> Видео</button>
+            <button class="feature-btn" onclick="showFeature('wardrobe')"> Гардероб</button>
+            <button class="feature-btn" onclick="showFeature('scan')"> 3D-скан</button>
+            <button class="feature-btn" onclick="showFeature('locations')"> Локации</button>
+            <button class="feature-btn" onclick="showFeature('editor')"> Монтаж</button>
         </div>
-        <button class="register-btn" onclick="showRegistrationForm()">
-             Начать творить
-        </button>
+
+        <!-- Центральная область -->  
+        <div class="registration-center">
+            <h1 class="registration-title">Регистрация</h1>
+            <button class="register-main-btn" onclick="startRegistration()">
+                 Начать творить
+            </button>
+            <p class="availability-note">
+                * Все функции доступны после регистрации
+            </p>
+        </div>
+
+        <!-- Окно предварительного просмотра -->
+        <div class="feature-preview" id="featurePreview">
+            <div class="preview-title" id="previewTitle"></div>
+            <div class="preview-content" id="previewContent"></div>
+        </div>
     </div>
 
     <script>
-        // Автоматический переход к логотипу через 8 секунд
         setTimeout(() => {
             document.getElementById('introScene').style.display = 'none';
             document.getElementById('logoContainer').style.display = 'flex';
         }, 8000);
-
-        function showRegistrationOffer() {
+        
+        function showRegistrationInterface() {
             document.getElementById('logoContainer').style.display = 'none';
-            document.getElementById('registrationOffer').style.display = 'flex';
+            document.getElementById('registrationInterface').style.display = 'flex';
         }
 
-        function showRegistrationForm() {
-            alert(' EdAiVi Studio - Творите будущее с AI!\n\n AI Студия звука\n AI Студия видео\n AI Виртуальная гардеробная\n AI 3D-сканирование\n AI Видеомонтаж\n Создание клипов с AI');
+        const features = {
+            audio: {
+                title: ' AI Студия звука',
+                content: ' Генерация музыки любых жанров\n Звуковые эффекты и атмосфера\n Синхронизация с видео'
+            },
+            video: {
+                title: ' AI Студия видео',
+                content: ' Генерация видео из текста\n Создание персонажей и движений\n Профессиональная съёмка'
+            },
+            wardrobe: {
+                title: ' AI Виртуальная гардеробная',
+                content: ' Загрузка любой одежды с фото\n Виртуальная примерочная\n Автоподбор стилей\n Интеграция с персонажами'
+            },
+            scan: {
+                title: ' AI 3D-сканирование',
+                content: ' Сканирование лица через веб-камеру\n Создание 3D-аватаров\n Анимация персонажей\n Реалистичные модели'
+            },
+            locations: {
+                title: ' AI Локации и сцены',
+                content: ' Генерация любых локаций\n Загрузка фонов под стиль клипа\n Реалистичная интеграция с персонажами\n Синхронизация освещения и атмосферы\n Эффекты как в голливудских фильмах'
+            },
+            editor: {
+                title: ' AI Видеомонтаж',
+                content: ' Профессиональный монтаж\n Автоматическая синхронизация\n Спецэффекты и переходы'
+            }
+        };
+
+        function showFeature(feature) {
+            const preview = document.getElementById('featurePreview');
+            const title = document.getElementById('previewTitle');
+            const content = document.getElementById('previewContent');
+            
+            if (features[feature]) {
+                title.textContent = features[feature].title;
+                content.textContent = features[feature].content;
+                preview.style.display = 'flex';
+            } else {
+                preview.style.display = 'none';
+            }
+        }
+
+        function startRegistration() {
+            alert(' EdAiVi Studio скоро откроется!\n\n Студия звука\n Студия видео\n Виртуальная гардеробная\n 3D-сканирование\n Локации и сцены\n Видеомонтаж\n Создание клипов');
         }
     </script>
 </body>
