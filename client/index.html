@@ -1,115 +1,388 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EdAiVi Studio</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Exo+2:wght@300;400;500;600;700&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Exo 2', sans-serif;
+            overflow: hidden;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .intro-scene {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        /* Парень */
+        .character-male {
+            position: absolute;
+            width: 120px;
+            height: 200px;
+            background: #4a90e2;
+            border-radius: 60px 60px 20px 20px;
+            left: -150px;
+            top: 50%;
+            transform: translateY(-50%);
+            animation: walkInMale 6s ease-in-out forwards;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        .character-male::before {
+            content: "";
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: #fdbcb4;
+            border-radius: 50%;
+            top: 20px;
+            left: 40px;
+        }
+        .character-male::after {
+            content: "";
+            position: absolute;
+            width: 60px;
+            height: 80px;
+            background: #2c3e50;
+            bottom: -80px;
+            left: 30px;
+            border-radius: 5px;
+        }
+
+        /* Девушка */
+        .character-female {
+            position: absolute;
+            width: 120px;
+            height: 200px;
+            background: #e91e63;
+            border-radius: 60px 60px 20px 20px;
+            right: -150px;
+            top: 50%;
+            transform: translateY(-50%);
+            animation: walkInFemale 6s ease-in-out forwards;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        .character-female::before {
+            content: "";
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: #fdbcb4;
+            border-radius: 50%;
+            top: 20px;
+            left: 40px;
+        }
+        .character-female::after {
+            content: "";
+            position: absolute;
+            width: 80px;
+            height: 100px;
+            background: #8e24aa;
+            bottom: -100px;
+            left: 20px;
+            border-radius: 40px 40px 10px 10px;
+        }
+
+        /* Волосы девушки */
+        .character-female .hair {
+            position: absolute;
+            width: 60px;
+            height: 50px;
+            background: #795548;
+            border-radius: 30px 30px 15px 15px;
+            top: 5px;
+            left: 30px;
+        }
+
+        .logo-container {
+            position: absolute;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+        }
+        
+        .flash-effect {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, white, rgba(255,255,255,0.8));
+            opacity: 0;
+            pointer-events: none;
+            z-index: 1000;
+            animation: flashEffect 2s ease-in-out 8s forwards;
+        }
+
+        .logo {
+            font-family: 'Orbitron', monospace;
+            font-size: 5rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7);
+            background-size: 500% 500%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientFlow 4s ease infinite;
+            cursor: pointer;
+            text-align: center;
+            letter-spacing: 6px;
+            text-shadow: 0 0 50px rgba(255,255,255,0.5);
+            text-transform: uppercase;
+        }
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .logo-subtitle {
+            font-family: 'Rajdhani', sans-serif;
+            color: white;
+            font-size: 2.2rem;
+            font-weight: 500;
+            margin-top: 50px;
+            text-align: center;
+            opacity: 0.95;
+            letter-spacing: 3px;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            animation: subtitleGlow 3s ease-in-out infinite alternate;
+            line-height: 1.6;
+            text-transform: uppercase;
+            max-width: 800px;
+        }
+
+        .subtitle-line1 {
+            display: block;
+            margin-bottom: 15px;
+            font-size: 2.4rem;
+            background: linear-gradient(45deg, #ffffff, #f0f0f0, #e0e0e0);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textShine 3s ease-in-out infinite;
+        }
+
+        .subtitle-line2 {
+            display: block;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .ai-highlight {
+            font-family: 'Orbitron', monospace;
+            background: linear-gradient(45deg, #00d4ff, #5a67d8, #667eea, #00ff88);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: aiGlow 2s ease-in-out infinite alternate;
+            font-weight: 700;
+            font-size: 2.4rem;
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.6);
+            letter-spacing: 4px;
+        }
+
+        .registration-offer {
+            position: absolute;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+        }
+        .offer-text {
+            font-family: 'Rajdhani', sans-serif;
+            color: white;
+            font-size: 3rem;
+            font-weight: 500;
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeInUp 1s ease-in-out forwards;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.4);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .register-btn {
+            font-family: 'Exo 2', sans-serif;
+            padding: 25px 60px;
+            font-size: 1.4rem;
+            font-weight: 600;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease-in-out 0.5s forwards;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .register-btn:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+        }
+
+        /* Анимации */
+        @keyframes walkInMale {
+            0% { left: -150px; }
+            60% { left: calc(50% - 120px); }
+            80% { left: calc(50% - 80px); }
+            90% { left: calc(50% - 80px); }
+            100% { 
+                left: calc(50% - 80px);
+                transform: translateY(-50%) rotateY(180deg);
+            }
+        }
+        
+        @keyframes walkInFemale {
+            0% { right: -150px; }
+            60% { right: calc(50% - 120px); }
+            80% { right: calc(50% - 80px); }
+            90% { right: calc(50% - 80px); }
+            100% { 
+                right: calc(50% - 80px);
+                transform: translateY(-50%) rotateY(-180deg);
+            }
+        }
+
+        @keyframes flashEffect {
+            0% { opacity: 0; }
+            30% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            25% { background-position: 100% 50%; }
+            50% { background-position: 50% 100%; }
+            75% { background-position: 0% 50%; }
+            100% { background-position: 50% 0%; }
+        }
+
+        @keyframes subtitleGlow {
+            0% { 
+                opacity: 0.95;
+                text-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            }
+            100% { 
+                opacity: 1;
+                text-shadow: 0 0 25px rgba(255,255,255,0.3);
+            }
+        }
+
+        @keyframes textShine {
+            0% { 
+                background-position: 0% 50%;
+            }
+            50% { 
+                background-position: 100% 50%;
+            }
+            100% { 
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes aiGlow {
+            0% { 
+                background-position: 0% 50%;
+                text-shadow: 0 0 15px rgba(0, 212, 255, 0.6);
+            }
+            100% { 
+                background-position: 100% 50%;
+                text-shadow: 0 0 25px rgba(90, 103, 216, 0.8);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .logo { 
+                font-size: 3rem; 
+                letter-spacing: 3px;
+            }
+            .logo-subtitle { 
+                font-size: 1.5rem; 
+                margin-top: 30px;
+            }
+            .subtitle-line1 { font-size: 1.6rem; }
+            .subtitle-line2 { font-size: 1.4rem; }
+            .ai-highlight { font-size: 1.6rem; }
+            .offer-text { font-size: 2rem; }
+            .register-btn { padding: 20px 40px; font-size: 1.2rem; }
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>🎨 EdAiVi Studio</h1>
-        <p><strong>Frontend работает!</strong></p>
-        
-        <div class="status success">
-            ✅ Frontend успешно загружен
+    <div class="flash-effect" id="flashEffect"></div>
+
+    <div class="intro-scene" id="introScene">
+        <div class="character-male"></div>
+        <div class="character-female">
+            <div class="hair"></div>
         </div>
-        
-        <h3>Тестирование API:</h3>
-        
-        <button id="getMainDataBtn">Получить основную информацию</button>
-        <button id="testLoginBtn">Тест маршрута Login</button>
-        <button id="testRegisterBtn">Тест маршрута Register</button>
-        <button id="testProfileBtn">Тест маршрута Profile</button>
-        
-        <div id="backendData" class="data-display"></div>
-        <div id="statusMessage"></div>
+    </div>
+
+    <div class="logo-container" id="logoContainer">
+        <div class="logo" onclick="showRegistrationOffer()">
+            EdAiVi Studio
+        </div>
+        <div class="logo-subtitle">
+            <span class="subtitle-line1"> Твои мечты стали реальностью</span>
+            <span class="subtitle-line2"> Твори вместе с <span class="ai-highlight">AI</span></span>
+        </div>
+    </div>
+
+    <div class="registration-offer" id="registrationOffer">
+        <div class="offer-text">
+             Готовы творить будущее с AI?
+        </div>
+        <button class="register-btn" onclick="showRegistrationForm()">
+             Начать творить
+        </button>
     </div>
 
     <script>
-        // Функция для отображения данных
-        function displayData(data, title) {
-            const dataDiv = document.getElementById('backendData');
-            const statusDiv = document.getElementById('statusMessage');
-            
-            dataDiv.style.display = 'block';
-            dataDiv.innerHTML = `<strong>${title}:</strong>\n${JSON.stringify(data, null, 2)}`;
-            
-            statusDiv.innerHTML = '<div class="status success">✅ Данные успешно получены с backend!</div>';
+        // Автоматический переход к логотипу через 8 секунд
+        setTimeout(() => {
+            document.getElementById('introScene').style.display = 'none';
+            document.getElementById('logoContainer').style.display = 'flex';
+        }, 8000);
+
+        function showRegistrationOffer() {
+            document.getElementById('logoContainer').style.display = 'none';
+            document.getElementById('registrationOffer').style.display = 'flex';
         }
-        
-        // Функция для отображения ошибок
-        function displayError(error, title) {
-            const dataDiv = document.getElementById('backendData');
-            const statusDiv = document.getElementById('statusMessage');
-            
-            dataDiv.style.display = 'block';
-            dataDiv.innerHTML = `<strong>Ошибка ${title}:</strong>\n${error}`;
-            
-            statusDiv.innerHTML = '<div class="status error">❌ Ошибка при получении данных с backend!</div>';
-        }
-        
-        // Основная информация
-        document.getElementById('getMainDataBtn').onclick = async function() {
-            try {
-                const response = await fetch('http://localhost:3001/');
-                const data = await response.json();
-                displayData(data, 'Основная информация API');
-            } catch (error) {
-                displayError(error.message, 'при получении основной информации');
-            }
-        }
-        
-        // Тест маршрута Login
-        document.getElementById('testLoginBtn').onclick = async function() {
-            try {
-                const response = await fetch('http://localhost:3001/api/auth/login', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        email: 'test@example.com',
-                        password: 'testpassword'
-                    })
-                });
-                const data = await response.json();
-                displayData(data, 'Ответ маршрута Login');
-            } catch (error) {
-                displayError(error.message, 'при тестировании Login');
-            }
-        }
-        
-        // Тест маршрута Register
-        document.getElementById('testRegisterBtn').onclick = async function() {
-            try {
-                const response = await fetch('http://localhost:3001/api/auth/register', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        email: 'test@example.com',
-                        password: 'testpassword',
-                        displayName: 'Test User'
-                    })
-                });
-                const data = await response.json();
-                displayData(data, 'Ответ маршрута Register');
-            } catch (error) {
-                displayError(error.message, 'при тестировании Register');
-            }
-        }
-        
-        // Тест маршрута Profile
-        document.getElementById('testProfileBtn').onclick = async function() {
-            try {
-                const response = await fetch('http://localhost:3001/api/auth/profile');
-                const data = await response.json();
-                displayData(data, 'Ответ маршрута Profile');
-            } catch (error) {
-                displayError(error.message, 'при тестировании Profile');
-            }
+
+        function showRegistrationForm() {
+            alert(' EdAiVi Studio - Творите будущее с AI!\n\n AI Студия звука\n AI Студия видео\n AI Виртуальная гардеробная\n AI 3D-сканирование\n AI Видеомонтаж\n Создание клипов с AI');
         }
     </script>
 </body>
