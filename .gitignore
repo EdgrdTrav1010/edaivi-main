@@ -103,3 +103,7 @@ public
 *.swp
 *.swo
 .DS_Store
+
+# Oracle JDK
+Oracle_JDK-24/
+.DS_Store
