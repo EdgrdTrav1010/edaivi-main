@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUXE Fashion</title>
+    <link rel="stylesheet" href="fashion.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="page-container">
+        <!-- Navigation -->
+        <nav class="main-nav">
+            <div class="nav-container">
+                <div class="logo">LUXE</div>
+                <ul class="nav-links">
+                    <li><a href="#home" class="nav-link active" data-section="home">Главная</a></li>
+                    <li><a href="#collection" class="nav-link" data-section="collection">Коллекция</a></li>
+                    <li><a href="#trending" class="nav-link" data-section="trending">Тренды</a></li>
+                    <li><a href="#lookbook" class="nav-link" data-section="lookbook">Лукбук</a></li>
+                    <li><a href="#shop" class="nav-link" data-section="shop">Магазин</a></li>
+                </ul>
+                <div class="nav-icons">
+                    <a href="#" class="icon-link"><i class="fas fa-search"></i></a>
+                    <a href="#" class="icon-link"><i class="fas fa-user"></i></a>
+                    <a href="#" class="icon-link"><i class="fas fa-shopping-bag"></i><span class="cart-count">0</span></a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Home Section -->
+            <section id="home" class="section active">
+                <div class="hero">
+                    <div class="hero-content">
+                        <h1 class="hero-title">Новая коллекция <span>2025</span></h1>
+                        <p class="hero-subtitle">Откройте для себя уникальные дизайнерские решения, которые подчеркнут вашу индивидуальность</p>
+                        <a href="#collection" class="btn btn-primary" data-section="collection">Смотреть коллекцию</a>
+                    </div>
+                    <div class="hero-image">
+                        <div class="image-container">
+                            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Fashion Model">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Collection Section -->
+            <section id="collection" class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Наша коллекция</h2>
+                    <p class="section-subtitle">Изысканные образы для особых случаев</p>
+                </div>
+                <div class="collection-grid">
+                    <div class="collection-item">
+                        <div class="collection-image">
+                            <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Collection Item">
+                            <div class="collection-overlay">
+                                <a href="#" class="btn btn-outline">Подробнее</a>
+                            </div>
+                        </div>
+                        <div class="collection-info">
+                            <h3>Элегантное платье</h3>
+                            <p class="price">12,500 ₽</p>
+                        </div>
+                    </div>
+                    <div class="collection-item">
+                        <div class="collection-image">
+                            <img src="https://images.unsplash.com/photo-1485968579580-b6d095142e6e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Collection Item">
+                            <div class="collection-overlay">
+                                <a href="#" class="btn btn-outline">Подробнее</a>
+                            </div>
+                        </div>
+                        <div class="collection-info">
+                            <h3>Стильный костюм</h3>
+                            <p class="price">18,900 ₽</p>
+                        </div>
+                    </div>
+                    <div class="collection-item">
+                        <div class="collection-image">
+                            <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Collection Item">
+                            <div class="collection-overlay">
+                                <a href="#" class="btn btn-outline">Подробнее</a>
+                            </div>
+                        </div>
+                        <div class="collection-info">
+                            <h3>Летний ансамбль</h3>
+                            <p class="price">9,800 ₽</p>
+                        </div>
+                    </div>
+                    <div class="collection-item">
+                        <div class="collection-image">
+                            <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Collection Item">
+                            <div class="collection-overlay">
+                                <a href="#" class="btn btn-outline">Подробнее</a>
+                            </div>
+                        </div>
+                        <div class="collection-info">
+                            <h3>Вечерний наряд</h3>
+                            <p class="price">15,300 ₽</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="view-all">
+                    <a href="#shop" class="btn btn-secondary" data-section="shop">Смотреть все</a>
+                </div>
+            </section>
+
+            <!-- Trending Section -->
+            <section id="trending" class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Тренды сезона</h2>
+                    <p class="section-subtitle">Самые актуальные образы этого сезона</p>
+                </div>
+                <div class="trending-container">
+                    <div class="trending-main">
+                        <div class="trending-image">
+                            <img src="https://images.unsplash.com/photo-1581044777550-4cfa60707c03?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Trending Fashion">
+                        </div>
+                        <div class="trending-content">
+                            <h3>Минимализм в деталях</h3>
+                            <p>Этот сезон диктует правила элегантной простоты. Чистые линии, монохромные цвета и качественные материалы создают образ, который никогда не выйдет из моды.</p>
+                            <a href="#" class="btn btn-primary">Подробнее</a>
+                        </div>
+                    </div>
+                    <div class="trending-items">
+                        <div class="trending-item">
+                            <div class="trending-item-image">
+                                <img src="https://images.unsplash.com/photo-1566206091558-7f218b696731?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Trending Item">
+                            </div>
+                            <div class="trending-item-info">
+                                <h4>Аксессуары</h4>
+                                <p>Минималистичные украшения</p>
+                            </div>
+                        </div>
+                        <div class="trending-item">
+                            <div class="trending-item-image">
+                                <img src="https://images.unsplash.com/photo-1542295669297-4d352b042bca?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Trending Item">
+                            </div>
+                            <div class="trending-item-info">
+                                <h4>Обувь</h4>
+                                <p>Комфорт и стиль</p>
+                            </div>
+                        </div>
+                        <div class="trending-item">
+                            <div class="trending-item-image">
+                                <img src="https://images.unsplash.com/photo-1591369822096-ffd140ec948f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Trending Item">
+                            </div>
+                            <div class="trending-item-info">
+                                <h4>Сумки</h4>
+                                <p>Функциональный дизайн</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Lookbook Section -->
+            <section id="lookbook" class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Лукбук</h2>
+                    <p class="section-subtitle">Вдохновляющие образы для любого случая</p>
+                </div>
+                <div class="lookbook-grid">
+                    <div class="lookbook-item large">
+                        <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Lookbook Image">
+                        <div class="lookbook-caption">
+                            <h3>Городской шик</h3>
+                            <p>Весна 2025</p>
+                        </div>
+                    </div>
+                    <div class="lookbook-item">
+                        <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Lookbook Image">
+                        <div class="lookbook-caption">
+                            <h3>Вечерний выход</h3>
+                            <p>Лето 2025</p>
+                        </div>
+                    </div>
+                    <div class="lookbook-item">
+                        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Lookbook Image">
+                        <div class="lookbook-caption">
+                            <h3>Повседневный образ</h3>
+                            <p>Весна 2025</p>
+                        </div>
+                    </div>
+                    <div class="lookbook-item">
+                        <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Lookbook Image">
+                        <div class="lookbook-caption">
+                            <h3>Летняя свежесть</h3>
+                            <p>Лето 2025</p>
+                        </div>
+                    </div>
+                    <div class="lookbook-item">
+                        <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Lookbook Image">
+                        <div class="lookbook-caption">
+                            <h3>Деловой стиль</h3>
+                            <p>Осень 2025</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Shop Section -->
+            <section id="shop" class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Магазин</h2>
+                    <p class="section-subtitle">Найдите свой идеальный образ</p>
+                </div>
+                <div class="shop-categories">
+                    <div class="category-filter">
+                        <button class="filter-btn active" data-filter="all">Все</button>
+                        <button class="filter-btn" data-filter="new">Новинки</button>
+                        <button class="filter-btn" data-filter="popular">Популярное</button>
+                        <button class="filter-btn" data-filter="sale">Распродажа</button>
+                    </div>
+                </div>
+                <div class="shop-grid">
+                    <div class="shop-item" data-category="new">
+                        <div class="shop-image">
+                            <img src="https://images.unsplash.com/photo-1485968579580-b6d095142e6e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Shop Item">
+                            <div class="shop-badge new">Новинка</div>
+                            <div class="shop-actions">
+                                <button class="action-btn" title="Добавить в избранное"><i class="fas fa-heart"></i></button>
+                                <button class="action-btn" title="Добавить в корзину"><i class="fas fa-shopping-bag"></i></button>
+                                <button class="action-btn" title="Быстрый просмотр"><i class="fas fa-search"></i></button>
+                            </div>
+                        </div>
+                        <div class="shop-info">
+                            <h3>Элегантный костюм</h3>
+                            <p class="price">18,900 ₽</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>(4.5)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="shop-item" data-category="popular">
+                        <div class="shop-image">
+                            <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Shop Item">
+                            <div class="shop-badge popular">Хит</div>
+                            <div class="shop-actions">
+                                <button class="action-btn" title="Добавить в избранное"><i class="fas fa-heart"></i></button>
+                                <button class="action-btn" title="Добавить в корзину"><i class="fas fa-shopping-bag"></i></button>
+                                <button class="action-btn" title="Быстрый просмотр"><i class="fas fa-search"></i></button>
+                            </div>
+                        </div>
+                        <div class="shop-info">
+                            <h3>Вечернее платье</h3>
+                            <p class="price">12,500 ₽</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(5.0)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="shop-item" data-category="sale">
+                        <div class="shop-image">
+                            <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Shop Item">
+                            <div class="shop-badge sale">-30%</div>
+                            <div class="shop-actions">
+                                <button class="action-btn" title="Добавить в избранное"><i class="fas fa-heart"></i></button>
+                                <button class="action-btn" title="Добавить в корзину"><i class="fas fa-shopping-bag"></i></button>
+                                <button class="action-btn" title="Быстрый просмотр"><i class="fas fa-search"></i></button>
+                            </div>
+                        </div>
+                        <div class="shop-info">
+                            <h3>Летний комплект</h3>
+                            <p class="price"><span class="old-price">9,800 ₽</span> 6,860 ₽</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>(4.0)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="shop-item" data-category="new">
+                        <div class="shop-image">
+                            <img src="https://images.unsplash.com/photo-1566206091558-7f218b696731?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Shop Item">
+                            <div class="shop-badge new">Новинка</div>
+                            <div class="shop-actions">
+                                <button class="action-btn" title="Добавить в избранное"><i class="fas fa-heart"></i></button>
+                                <button class="action-btn" title="Добавить в корзину"><i class="fas fa-shopping-bag"></i></button>
+                                <button class="action-btn" title="Быстрый просмотр"><i class="fas fa-search"></i></button>
+                            </div>
+                        </div>
+                        <div class="shop-info">
+                            <h3>Стильная блуза</h3>
+                            <p class="price">5,200 ₽</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <i class="far fa-star"></i>
+                                <span>(3.5)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="shop-item" data-category="popular">
+                        <div class="shop-image">
+                            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Shop Item">
+                            <div class="shop-badge popular">Хит</div>
+                            <div class="shop-actions">
+                                <button class="action-btn" title="Добавить в избранное"><i class="fas fa-heart"></i></button>
+                                <button class="action-btn" title="Добавить в корзину"><i class="fas fa-shopping-bag"></i></button>
+                                <button class="action-btn" title="Быстрый просмотр"><i class="fas fa-search"></i></button>
+                            </div>
+                        </div>
+                        <div class="shop-info">
+                            <h3>Модное пальто</h3>
+                            <p class="price">22,400 ₽</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>(4.7)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="shop-item" data-category="sale">
+                        <div class="shop-image">
+                            <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Shop Item">
+                            <div class="shop-badge sale">-20%</div>
+                            <div class="shop-actions">
+                                <button class="action-btn" title="Добавить в избранное"><i class="fas fa-heart"></i></button>
+                                <button class="action-btn" title="Добавить в корзину"><i class="fas fa-shopping-bag"></i></button>
+                                <button class="action-btn" title="Быстрый просмотр"><i class="fas fa-search"></i></button>
+                            </div>
+                        </div>
+                        <div class="shop-info">
+                            <h3>Вечерний наряд</h3>
+                            <p class="price"><span class="old-price">15,300 ₽</span> 12,240 ₽</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>(4.2)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pagination">
+                    <a href="#" class="page-link active">1</a>
+                    <a href="#" class="page-link">2</a>
+                    <a href="#" class="page-link">3</a>
+                    <a href="#" class="page-link next"><i class="fas fa-chevron-right"></i></a>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="main-footer">
+            <div class="footer-container">
+                <div class="footer-top">
+                    <div class="footer-column">
+                        <div class="footer-logo">LUXE</div>
+                        <p class="footer-description">Мы создаем уникальные дизайнерские решения, которые подчеркивают вашу индивидуальность и стиль.</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-pinterest-p"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-column">
+                        <h3 class="footer-title">Категории</h3>
+                        <ul class="footer-links">
+                            <li><a href="#">Женская одежда</a></li>
+                            <li><a href="#">Мужская одежда</a></li>
+                            <li><a href="#">Аксессуары</a></li>
+                            <li><a href="#">Обувь</a></li>
+                            <li><a href="#">Новинки</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3 class="footer-title">Информация</h3>
+                        <ul class="footer-links">
+                            <li><a href="#">О нас</a></li>
+                            <li><a href="#">Контакты</a></li>
+                            <li><a href="#">Доставка</a></li>
+                            <li><a href="#">Возврат</a></li>
+                            <li><a href="#">FAQ</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3 class="footer-title">Подписка</h3>
+                        <p class="footer-description">Подпишитесь на нашу рассылку, чтобы получать информацию о новинках и специальных предложениях.</p>
+                        <form class="subscribe-form">
+                            <input type="email" placeholder="Ваш email" required>
+                            <button type="submit" class="btn btn-primary">Подписаться</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p class="copyright">© 2025 LUXE Fashion. Все права защищены.</p>
+                    <div class="payment-methods">
+                        <img src="https://via.placeholder.com/40x25" alt="Visa">
+                        <img src="https://via.placeholder.com/40x25" alt="MasterCard">
+                        <img src="https://via.placeholder.com/40x25" alt="PayPal">
+                        <img src="https://via.placeholder.com/40x25" alt="Apple Pay">
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="fashion.js"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+# AI и ML
+openai
+transformers
+torch
+numpy
+scipy
+scikit-learn
+opencv-python
+# 3DDFA_V2 (реконструкция лиц)
+git+https://github.com/cleardusk/3DDFA_V2.git
+# Для работы с музыкой и аудио
+librosa
+# Для модерации и анализа
+pandas
+# Для работы с видео
+moviepy
+# Для интеграции с Node.js через REST API
+flask
+flask-cors

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EdAiVi Studio</title>
+    <link rel="stylesheet" href="enhanced.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="page-container">
+        <header>
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo">
+                        <h1>EdAiVi Studio</h1>
+                        <p class="tagline">AI-powered multimedia platform</p>
+                    </div>
+                    <nav>
+                        <ul>
+                            <li><a href="#home" class="nav-link active" data-section="home">Главная</a></li>
+                            <li><a href="#features" class="nav-link" data-section="features">Возможности</a></li>
+                            <li><a href="#ai-models" class="nav-link" data-section="ai-models">AI Модели</a></li>
+                            <li><a href="#api" class="nav-link" data-section="api">API</a></li>
+                            <li><a href="#contact" class="nav-link" data-section="contact">Контакты</a></li>
+                        </ul>
+                    </nav>
+                    <div class="auth-buttons">
+                        <button id="login-btn" class="btn btn-outline">Войти</button>
+                        <button id="register-btn" class="btn btn-primary">Регистрация</button>
+                    </div>
+                    <button class="mobile-menu-btn" aria-label="Меню">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <!-- Home Section -->
+            <section id="home" class="section active">
+                <div class="hero">
+                    <div class="container">
+                        <div class="hero-content">
+                            <h2>Создавайте контент нового поколения с помощью ИИ</h2>
+                            <p>EdAiVi Studio — это комплексная платформа для создания, редактирования и публикации аудио, видео и 3D контента с использованием искусственного интеллекта.</p>
+                            <div class="hero-buttons">
+                                <button class="btn btn-primary btn-large">Начать бесплатно</button>
+                                <button class="btn btn-outline btn-large">Демо</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Features Section -->
+            <section id="features" class="section">
+                <div class="container">
+                    <h2 class="section-title">Возможности платформы</h2>
+                    <div class="features-grid">
+                        <div class="feature-card" data-aos="fade-up">
+                            <div class="feature-icon"><i class="fas fa-music"></i></div>
+                            <h3>Аудио продакшн</h3>
+                            <p>Создавайте, редактируйте и улучшайте аудио с помощью инструментов на базе ИИ</p>
+                        </div>
+                        <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                            <div class="feature-icon"><i class="fas fa-film"></i></div>
+                            <h3>Видео продакшн</h3>
+                            <p>Редактируйте видео с помощью ИИ и применяйте продвинутые эффекты</p>
+                        </div>
+                        <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                            <div class="feature-icon"><i class="fas fa-user-astronaut"></i></div>
+                            <h3>3D Аватары</h3>
+                            <p>Создавайте и настраивайте 3D аватары для различных приложений</p>
+                        </div>
+                        <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                            <div class="feature-icon"><i class="fas fa-globe-americas"></i></div>
+                            <h3>3D Сцены</h3>
+                            <p>Создавайте иммерсивные 3D окружения и сцены</p>
+                        </div>
+                        <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                            <div class="feature-icon"><i class="fas fa-broadcast-tower"></i></div>
+                            <h3>Стриминг</h3>
+                            <p>Транслируйте свой контент с интерактивными функциями</p>
+                        </div>
+                        <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
+                            <div class="feature-icon"><i class="fas fa-robot"></i></div>
+                            <h3>ИИ инструменты</h3>
+                            <p>Используйте различные модели ИИ для генерации и улучшения контента</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- AI Models Section -->
+            <section id="ai-models" class="section">
+                <div class="container">
+                    <h2 class="section-title">AI Модели</h2>
+                    <div class="models-container">
+                        <div class="model-card" data-aos="fade-up">
+                            <div class="model-header">
+                                <h3>TextGen Basic</h3>
+                                <span class="model-badge">Текст</span>
+                            </div>
+                            <p>Базовая модель генерации текста для общего использования</p>
+                            <div class="model-stats">
+                                <div class="stat">
+                                    <span class="stat-label">Кредиты</span>
+                                    <span class="stat-value">1</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-label">Время</span>
+                                    <span class="stat-value">~2с</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-outline btn-full">Попробовать</button>
+                        </div>
+                        <div class="model-card" data-aos="fade-up" data-aos-delay="100">
+                            <div class="model-header">
+                                <h3>ImageGen Basic</h3>
+                                <span class="model-badge">Изображения</span>
+                            </div>
+                            <p>Базовая модель генерации изображений из текстовых описаний</p>
+                            <div class="model-stats">
+                                <div class="stat">
+                                    <span class="stat-label">Кредиты</span>
+                                    <span class="stat-value">2</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-label">Время</span>
+                                    <span class="stat-value">~5с</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-outline btn-full">Попробовать</button>
+                        </div>
+                        <div class="model-card" data-aos="fade-up" data-aos-delay="200">
+                            <div class="model-header">
+                                <h3>TTS Basic</h3>
+                                <span class="model-badge">Аудио</span>
+                            </div>
+                            <p>Базовая модель преобразования текста в естественную речь</p>
+                            <div class="model-stats">
+                                <div class="stat">
+                                    <span class="stat-label">Кредиты</span>
+                                    <span class="stat-value">1</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-label">Время</span>
+                                    <span class="stat-value">~3с</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-outline btn-full">Попробовать</button>
+                        </div>
+                        <div class="model-card" data-aos="fade-up" data-aos-delay="300">
+                            <div class="model-header">
+                                <h3>MusicGen Pro</h3>
+                                <span class="model-badge">Аудио</span>
+                            </div>
+                            <p>Продвинутая модель для генерации музыки по текстовому описанию</p>
+                            <div class="model-stats">
+                                <div class="stat">
+                                    <span class="stat-label">Кредиты</span>
+                                    <span class="stat-value">3</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-label">Время</span>
+                                    <span class="stat-value">~10с</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-outline btn-full">Попробовать</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- API Section -->
+            <section id="api" class="section">
+                <div class="container">
+                    <h2 class="section-title">API</h2>
+                    <div class="api-content">
+                        <div class="api-info">
+                            <p>EdAiVi Studio предоставляет полнофункциональный API для интеграции с вашими приложениями.</p>
+                            <ul class="api-features">
+                                <li><i class="fas fa-check-circle"></i> RESTful API для всех функций платформы</li>
+                                <li><i class="fas fa-check-circle"></i> WebSocket для реального времени</li>
+                                <li><i class="fas fa-check-circle"></i> Документация и SDK</li>
+                                <li><i class="fas fa-check-circle"></i> Примеры интеграции</li>
+                            </ul>
+                            <button class="btn btn-primary">API Документация</button>
+                        </div>
+                        <div class="api-example">
+                            <pre><code>// Пример запроса к API
+fetch('https://api.edaivi.com/ai/generate/text', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer YOUR_API_KEY'
+  },
+  body: JSON.stringify({
+    modelId: 'text-gen-basic',
+    prompt: 'Напиши короткую историю о космическом путешествии',
+    parameters: {
+      temperature: 0.7,
+      maxTokens: 256
+    }
+  })
+})
+.then(response => response.json())
+.then(data => console.log(data));</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="section">
+                <div class="container">
+                    <h2 class="section-title">Свяжитесь с нами</h2>
+                    <div class="contact-content">
+                        <div class="contact-form">
+                            <form id="contact-form">
+                                <div class="form-group">
+                                    <label for="name">Имя</label>
+                                    <input type="text" id="name" name="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="message">Сообщение</label>
+                                    <textarea id="message" name="message" rows="5" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-full">Отправить</button>
+                            </form>
+                        </div>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <h3><i class="fas fa-envelope"></i> Email</h3>
+                                <p>info@edaivi.com</p>
+                            </div>
+                            <div class="contact-item">
+                                <h3><i class="fas fa-phone-alt"></i> Телефон</h3>
+                                <p>+7 (999) 123-45-67</p>
+                            </div>
+                            <div class="contact-item">
+                                <h3><i class="fas fa-map-marker-alt"></i> Адрес</h3>
+                                <p>Москва, ул. Примерная, д. 123</p>
+                            </div>
+                            <div class="social-links">
+                                <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-logo">
+                        <h2>EdAiVi Studio</h2>
+                        <p>AI-powered multimedia platform</p>
+                    </div>
+                    <div class="footer-links">
+                        <div class="footer-links-column">
+                            <h3>Продукт</h3>
+                            <ul>
+                                <li><a href="#">Возможности</a></li>
+                                <li><a href="#">Цены</a></li>
+                                <li><a href="#">FAQ</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-links-column">
+                            <h3>Компания</h3>
+                            <ul>
+                                <li><a href="#">О нас</a></li>
+                                <li><a href="#">Блог</a></li>
+                                <li><a href="#">Карьера</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-links-column">
+                            <h3>Ресурсы</h3>
+                            <ul>
+                                <li><a href="#">Документация</a></li>
+                                <li><a href="#">Туториалы</a></li>
+                                <li><a href="#">API</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-links-column">
+                            <h3>Правовая информация</h3>
+                            <ul>
+                                <li><a href="#">Условия использования</a></li>
+                                <li><a href="#">Политика конфиденциальности</a></li>
+                                <li><a href="#">Cookies</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 EdAiVi Studio. Все права защищены.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Auth Modals -->
+    <!-- Hidden Developer Login Modal -->
+    <div id="dev-login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Вход для разработчика</h2>
+            <form id="dev-login-form">
+                <div class="form-group">
+                    <label for="dev-login-email">Email</label>
+                    <input type="email" id="dev-login-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="dev-login-password">Пароль</label>
+                    <input type="password" id="dev-login-password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="dev-key">Ключ разработчика</label>
+                    <input type="password" id="dev-key" name="devKey" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">Войти как разработчик</button>
+            </form>
+        </div>
+    </div>
+    
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Вход в систему</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Пароль</label>
+                    <input type="password" id="login-password" name="password" required>
+                </div>
+                <div class="form-group form-checkbox">
+                    <input type="checkbox" id="remember-me" name="remember">
+                    <label for="remember-me">Запомнить меня</label>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">Войти</button>
+            </form>
+            <div class="modal-footer">
+                <p>Нет аккаунта? <a href="#" id="show-register">Зарегистрироваться</a></p>
+                <p><a href="#" id="forgot-password">Забыли пароль?</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="register-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Регистрация</h2>
+            <form id="register-form">
+                <div class="form-group">
+                    <label for="register-name">Имя</label>
+                    <input type="text" id="register-name" name="displayName" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-email">Email</label>
+                    <input type="email" id="register-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Пароль</label>
+                    <input type="password" id="register-password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-password-confirm">Подтвердите пароль</label>
+                    <input type="password" id="register-password-confirm" name="passwordConfirm" required>
+                </div>
+                <div class="form-group form-checkbox">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <label for="terms">Я согласен с <a href="#">условиями использования</a> и <a href="#">политикой конфиденциальности</a></label>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">Зарегистрироваться</button>
+            </form>
+            <div class="modal-footer">
+                <p>Уже есть аккаунт? <a href="#" id="show-login">Войти</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="enhanced.js"></script>
+</body>
+</html>
